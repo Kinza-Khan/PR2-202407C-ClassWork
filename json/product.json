@@ -1,0 +1,19 @@
+{
+    "watches" : [
+    {
+        "id":1,"name":"","price" :5000 , "image" :"images/im1.jpg","des":"hello"
+    },
+    {
+        "id":1,"name":"","price" :5000 , "image" :"images/im1.jpg","des":"hello"
+    }
+    ,
+    {
+        "id":1,"name":"","price" :5000 , "image" :"images/im1.jpg","des":"hello"
+    }
+] ,
+"perfumes" : [
+    {"id":4,"name":"","price":6000,"image":"images/p1.jpg","des":"hello"},
+    {"id":4,"name":"","price":6000,"image":"images/p1.jpg","des":"hello"},
+    {"id":4,"name":"","price":6000,"image":"images/p1.jpg","des":"hello"}
+]
+}
