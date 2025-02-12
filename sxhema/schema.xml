@@ -2,9 +2,10 @@
 <?xml-model href="schema.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <aptech>
 <employee>
-<id></id>
-<name></name>
-<email></email>
+<id>1</id>
+<name>ali</name>
+<email>ali12@gmail.com</email>
+<city>lahore</city>
 </employee>
 <students>
 <id>1</id>
