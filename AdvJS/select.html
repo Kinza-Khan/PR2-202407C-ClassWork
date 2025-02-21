@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select</title>
+    <link rel="stylesheet" href="bootstrap-4.6.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+        <div class="container p-5 mt-3">
+            <a href="regularExpression.html" class="btn btn-info">Add</a>
+                <table class="table mt-4">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Action</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>                     
+                    </tbody>
+                </table>
+        </div>
+    <script src="jquery/jquery-3.7.1.js"></script>
+    <script src="bootstrap-4.6.2-dist/js/bootstrap.min.js"></script>
+    <script>
+        // console.log(localStorage.getItem('students'));
+        // console.log("hello");
+            let students = JSON.parse(localStorage.getItem('students'));
+            // console.log(students);
+            let tbody = $("tbody");
+            students.forEach(element => {
+               tbody.append(` <tr>
+                                <td>`+element.name+`</td>
+                                <td>`+element.email+`</td>
+                                <td>`+element.password+`</td>
+                                <td><a href="" class="btn btn-info">Edit</a></td>
+                                <td><a href="" class="btn btn-danger">Delete</a></td>
+                            
+                            </tr>`);
+            });
+
+    </script>
+</body>
+</html>

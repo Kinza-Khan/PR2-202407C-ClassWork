@@ -65,7 +65,71 @@
             })
 
             // password
-            let passwordRE = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])$/;
+          $("#userPassword").keyup(function(){
+            let uPassword = $(this).val();
+            let uPasswordRE = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d]).{8,15}$/;
+            if(!uPasswordRE.test(uPassword)){
+                    $(this).css('border',"2px solid red");
+                    $(this).next('small').show().text('a least one lower case one upper case one digit and one special character').css('color','red');
+            }
+            else{
+                        $(this).css('border','2px solid green');
+                        $(this).next('small').hide();
+            }
+          })
+          $("#userConfirmPassword").keyup(function(){
+            let confirmPassword = $(this).val();
+            let confirmPasswordRE = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d]).{8,15}$/;
+            let uPassword = $("#userPassword").val();
+            if(!confirmPasswordRE.test(confirmPassword)){
+                $(this).css('border',"2px solid red");
+                $(this).next('small').show().text('not follow RE').css('color','red'); 
+            }       
+            else{
+                if(uPassword != confirmPassword){
+                 $(this).css('border',"2px solid red");
+                $(this).next('small').show().text('password not matched').css('color','red');                 
+            }
+            else{
+                $(this).css('border','2px solid green');
+                $(this).next('small').hide();
+            }           
+            }
+          });
+        //   function
+         function emptyFields(inpVal){
+            console.log(inpVal);
+                if($(inpVal).val() == ""){
+                    $(inpVal).css('border',"2px solid red");
+                    $(inpVal).next('small').show().text('please filled out this field').css('color','red');   
+                }
+          }
+          $("#sub").click(function(){
+            let uName = $("#userName").val();
+            let uEmail = $("#userEmail").val();
+            let uPassword = $("#userPassword").val();
+            let uConfirmPassword = $("#userConfirmPassword").val();
+            emptyFields("#userName");
+            emptyFields("#userEmail");
+            emptyFields("#userPassword");
+            emptyFields("#userConfirmPassword");
+            console.log(uName);
+            let uNameRE = /^[a-zA-Z\s]{3,10}$/;
+            let uEmailRE = /^[a-z0-9_.]{4,10}[@][a-z]{5}[.][a-z]{3}$/;
+            let uPasswordRE = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d]).{8,15}$/;
+            let users = JSON.parse(localStorage.getItem('students')) || [];
+            if(uNameRE.test(uName) && uEmailRE.test(uEmail) && uPasswordRE.test(uPassword)){
+
+                users.push({name:uName,email:uEmail,password:uPassword});
+                localStorage.setItem('students',JSON.stringify(users));
+                alert('added');
+                location.assign('select.html');
+            }
+            else{
+                alert("invalid data");
+            }
+            
+          })
 
 
     </script>
